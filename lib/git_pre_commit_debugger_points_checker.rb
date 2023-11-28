@@ -25,8 +25,13 @@ module GitPreCommitDebuggerPointsChecker
     end
 
     def create_pre_commit_ignore
-      File.open('.pre-commit-ignore', 'w') do |file|
-        # You can optionally write content to the file here if needed
+      ignore_file_path = '.pre-commit-ignore'
+      unless File.exist?(ignore_file_path)
+        File.open(ignore_file_path, 'w') do |file|
+          file.puts("# Include files here to ignore git pre-commit checker")
+          file.puts("# - filename1.rb")
+          file.puts("# - filename2.rb")
+        end
       end
     end
 
@@ -34,27 +39,8 @@ module GitPreCommitDebuggerPointsChecker
       <<~SCRIPT
         # hooks/pre-commit
         # This script verifies if a list of "undesired" words are presented in the files you are
-        # intended to commit such console output, debugging information or keys/tokens/passwords.
-
-        # Instructions:
-
-        # Put this file into your .git/hooks folder as a file named "pre-commit", and set
-        # the file as executable (chmod +x pre-commit)
-
-        # If you want to skip the hook just add the --no-verify: git commit --no-verify
-
-        # If you want to ignore specific files, create a text file called ".pre-commit-ignore"
-        # and place it at the root of your Git project (next to your .gitignore file), and put the names
-        # of each file you want to ignore on each line, like so:
-        #
-        #   Example .pre-commit-ignore file contents:
-        #
-        #     Gemfile
-        #     Gemfile.lock
-        #     config/initializers/example_file_to_ignore.rb
-        #
-        # ---------------------------------------------
-        LIST="byebug\|debugger\|binding.pry"
+        # intended to commit such, debugging information or keys/tokens/passwords.
+        LIST="byebug\\|debugger\\|binding.pry"
 
         PROJECT_ROOT=$(git rev-parse --show-toplevel)
         IGNORED_FILES="$PROJECT_ROOT/.pre-commit-ignore"

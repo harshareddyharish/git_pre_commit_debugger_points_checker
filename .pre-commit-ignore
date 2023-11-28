@@ -1,0 +1,3 @@
+# Include files here to ignore git pre-commit checker
+- README.md
+- lib/git_pre_commit_debugger_points_checker.rb

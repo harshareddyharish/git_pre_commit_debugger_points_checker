@@ -12,7 +12,6 @@ Gem::Specification.new do |spec|
   spec.files = [
     "lib/git_pre_commit_debugger_points_checker/version.rb",
     "lib/git_pre_commit_debugger_points_checker.rb",
-    "lib/hooks/pre-commit",
     "git_pre_commit_debugger_points_checker.gemspec"
   ] + Dir["bin/*"]
   spec.homepage      = "https://github.com/harshareddyharish/git_pre_commit_debugger_points_checker"
