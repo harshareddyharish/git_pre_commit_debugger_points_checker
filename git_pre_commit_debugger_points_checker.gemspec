@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{A Git pre-commit hook that checks for debugging statements before allowing a commit.}
   spec.files = [
     "lib/git_pre_commit_debugger_points_checker/version.rb",
+    "lib/git_pre_commit_debugger_points_checker.rb",
     "lib/hooks/pre-commit",
     "git_pre_commit_debugger_points_checker.gemspec"
   ] + Dir["bin/*"]
