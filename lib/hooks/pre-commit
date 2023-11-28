@@ -1,3 +1,4 @@
+# hooks/pre-commit
 # This script verifies if a list of "undesired" words are presented in the files you are
 # intended to commit such console output, debugging information or keys/tokens/passwords.
 

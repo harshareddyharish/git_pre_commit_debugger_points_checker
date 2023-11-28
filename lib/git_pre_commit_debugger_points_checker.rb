@@ -3,15 +3,13 @@ require 'git_pre_commit_debugger_points_checker/version'
 
 module GitPreCommitDebuggerPointsChecker
   class Error < StandardError; end
-  class Installer
-    COMMANDS = [
-      'mkdir -p ./.git/hooks',
-      'cp hooks/pre-commit ./.git/hooks/pre-commit',
-      'chmod +x ./.git/hooks/pre-commit',
-    ].freeze
-
-    def self.run
+  class Runner
+    def self.enable!
       new.run
+    end
+
+    def self.disable!
+      system('rm -rf ./.git/hooks/pre-commit')
     end
 
     def run
@@ -22,10 +20,9 @@ module GitPreCommitDebuggerPointsChecker
     private
 
     def execute_commands
-      COMMANDS.each do |command|
-        # system(command)
-        FileUtils::Verbose.send(:system, command)
-      end
+      system('mkdir -p ./.git/hooks')
+      system("cp lib/hooks/pre-commit ./.git/hooks/pre-commit")
+      system('chmod +x ./.git/hooks/pre-commit')
     end
 
     def create_pre_commit_ignore
