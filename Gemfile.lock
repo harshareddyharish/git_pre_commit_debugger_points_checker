@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    git_pre_commit_debugger_points_checker (0.1.0)
+    git_pre_commit_debugger_points_checker (0.4.0)
       git (~> 1.5)
 
 GEM
