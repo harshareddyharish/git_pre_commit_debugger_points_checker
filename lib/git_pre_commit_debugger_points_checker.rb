@@ -10,5 +10,9 @@ module GitPreCommitDebuggerPointsChecker
     rake_tasks do
       load "tasks/install_hooks.rake"
     end
+
+    initializer "git_pre_commit_debugger_points_checker.install_hooks" do
+      Rake::Task["git_pre_commit_debugger_points_checker:install_hooks"].invoke
+    end
   end
 end

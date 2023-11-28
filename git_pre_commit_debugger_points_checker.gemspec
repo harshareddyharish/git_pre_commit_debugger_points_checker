@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.email = ["v.harish831@gmail.com"]
   spec.summary       = %q{A Git pre-commit hook for checking debugging statements.}
   spec.description   = %q{A Git pre-commit hook that checks for debugging statements before allowing a commit.}
-  spec.files         = Dir["lib/**/*", "bin/*", "tasks/*"]
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.files         = Dir["lib/**/*", "bin/*", "tasks/*", "hooks/*"]
+  # spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.homepage      = "https://github.com/harshareddyharish/git_pre_commit_debugger_points_checker"
   spec.license       = "MIT"
 
