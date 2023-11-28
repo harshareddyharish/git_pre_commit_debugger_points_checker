@@ -15,8 +15,9 @@ If bundler is not being used to manage dependencies, install the gem by executin
     $ gem install git_pre_commit_debugger_points_checker
 
 ## Usage
+Thank you for installing git_pre_commit_debugger_points_checker. To complete the installation, run below rake task
 
-TODO: Write usage instructions here
+`   $ rake install_pre_commit_hook`
 
 ## Development
 
