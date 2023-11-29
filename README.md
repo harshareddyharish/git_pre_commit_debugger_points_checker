@@ -14,11 +14,26 @@ end
 ```
 
 ## Usage
-Thank you for installing git_pre_commit_debugger_points_checker. To enable or disable the pre-commit checker, create a file named pre_commit_checker.rb within the config/initializers/ directory. Remember to restart the server to complete the setup.
+Thanks for installing git_pre_commit_debugger_points_checker. To activate or deactivate the pre-commit checker, you have two ways: 1) generate a file named pre_commit_checker.rb in the config/initializers/ directory add the configuration, or 2) include the configuration directly in the development.rb environment file. Don't forget to restart the server to complete the setup.
 
 ```
 # config/initializers/pre_commit_checker.rb
 if Rails.env.development?
+  # Enable the Git Pre-Commit Debugger Points Checker
+  # Prevents developers from pushing commits containing debugger points
+  GitPreCommitDebuggerPointsChecker::Runner.enable!
+
+  # Disable the Git Pre-Commit Debugger Points Checker
+  # Allows developers to push commits without debugger points checking
+  # GitPreCommitDebuggerPointsChecker::Runner.disable!
+end
+```
+
+### OR
+
+```
+# config/environments/development.rb
+Rails.application.configure do
   # Enable the Git Pre-Commit Debugger Points Checker
   # Prevents developers from pushing commits containing debugger points
   GitPreCommitDebuggerPointsChecker::Runner.enable!
